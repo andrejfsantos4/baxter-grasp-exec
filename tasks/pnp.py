@@ -30,7 +30,7 @@ class PickAndPlace:
         self._hover_distance = hover_distance
         self.step_size = step_size
 
-        self.robot = Robot()
+        self.robot = Robot(limb='left')
 
         homedir = os.path.join(os.path.expanduser('~'), "grasp-comms")
         self.grasp_request = os.path.join(homedir, "grasp_request.npy")
@@ -82,6 +82,8 @@ class PickAndPlace:
         Pick from given pose
         """
         # Calculate grasp pose
+        ##No calculation involved, just returns a Pose message with grasp pose
+        ##and orientation
         pose = get_pose(position=grasp_pose[:3])
 
         # Apply grasp angle from model output
